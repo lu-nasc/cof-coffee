@@ -30,7 +30,7 @@ Projeto de gerencia de uma cafeteria fantasia para avaliação da disciplina de 
 - [x] ~Criar repositório no GitHub~
 - [x] ~Identificar necessidades do produto~
 - [x] ~Registrar em README a necessidade do produto e outros~
-- [ ] Documentar primeira release do produto
+- [x] ~Documentar primeira release do produto~
 - [ ] Aprensetação dos resultados
 #### Fase 1
 - [x] ~Identificar Requisitos Funcionais (RF)~
@@ -40,7 +40,7 @@ Projeto de gerencia de uma cafeteria fantasia para avaliação da disciplina de 
 - [x] ~criar backlog do produto no GitHub~
 - [ ] Garantir rastreabilidade entre itens do backlog do produto e RFs e NFs
 - [ ] Avaliar requisitos do software utizando critérios definidos e reportar problemas
-- [ ] Documentar segunda release do produto
+- [X] ~Documentar segunda release do produto~
 - [ ] Apresentação dos resultados
 #### Fase 2
 - [ ]  Projetar design detalhado do software
