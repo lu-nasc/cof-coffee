@@ -1,0 +1,11 @@
+<form action="/product" method="get">
+    <% products.forEach(product => { %>
+        <div>
+            <label> <%= product.name %> </label>
+            <div>
+                <label> <%= product.description %> </label>
+            </div>
+            <label> <%= product.price %> </label>
+        </div>
+        <% }) %>
+</form>
