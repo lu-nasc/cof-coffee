@@ -1,34 +1,24 @@
-const { render } = require('ejs')
-const { response, request } = require('express')
-
+const Product = require('../models/product') 
 const router = require('express').Router()
 
 router
     .route('/')
     .get(async(request, response) => {
-        response.render('product/index', {
-            title: "Produtos",
-            products: [{
-                    name: 'Expresso curto',
-                    description: 'café coado bom pra dar aquele ponta pé inicial no dia',
-                    price: 2.5
-                },
-                {
-                    name: 'Expresso longo',
-                    description: 'café coado bom pra dar vontade de cagar na empresa',
-                    price: 5.0
-                }
-            ]
-        })
+        try {
+            const products = await Product.find({})
+            response.render('product/index', 
+                            {   title: 'Produtos', 
+                                products })
+        } catch (error){ response.status(500).redirect('https://http.cat/500') }
     })
 
 router
     .route('/new')
     .get(async(request, response) => {
         let product_model = {
-            name: null,
-            description: null,
-            price: null
+            name: '',
+            description: '',
+            price: 0.0
         }
         response.render('product/new', {
             title: "Cadastro de Produto",
@@ -36,12 +26,15 @@ router
         })
     })
     .post(async(request, response) => {
-        console.log({
+        const product = new Product({
             name: request.body.name.trim(),
             description: request.body.description.trim(),
             price: priceTreatment(request.body.price)
         })
-        response.redirect('/product')
+        try {
+            const fresh_product = await product.save()
+            response.redirect('/product')
+        } catch (error) { response.status(400).redirect('https://http.cat/400') }
     })
 
 function priceTreatment(price) {

@@ -1,0 +1,40 @@
+version: '3'
+services:
+    web_app:
+        image: web_node
+        build: .
+        # o local onde esta especificado o Dockerfile
+        command: node src/app.js 
+        # inicializa o servidor da aplicação onde atualiza a cada alteração no BD
+        ports:
+        - "8000:8000"
+        # mapeamento das portas entre container e máquina
+        volumes:
+          - .:/usr/src/app
+          - /usr/src/app/node_modules
+        # diretórios que precisar estar contidos no container
+        depends_on:
+          - "mongo"
+          - "mongo_express"
+        links:
+          - "mongo"
+    mongo:
+        image: mongo
+        ports:
+            - "27017:27017"
+        # porta de conexão do banco de dados MongoDB
+        restart: always
+
+        # MONGO_INITDB_ROOT_USERNAME: admin
+        # MONGO_INITDB_ROOT_PASSWORD: admin
+        # # variáveis de ambiente com usuario e senha do banco de dados
+    
+    mongo_express:
+    # container de serviço cliente de acesso ao MongoDB
+      image: "mongo-express"
+      restart: "always"
+      ports:
+        - "8081:8081"
+      # ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      # ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      # # variáveis de ambiente com usuario e senha adminstrador do banco de dados
