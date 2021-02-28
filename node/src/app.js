@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const body_parser = require('body-parser')
 const mongoose = require('mongoose')
+const method_override = require('method-override')
 const app = express()
 
 // Configuração das ferramentas de frontend (EJS)
@@ -9,6 +10,7 @@ app.engine('.html', require('ejs').__express)
 app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'html')
+app.use(method_override('_method'))
 
 // Configuração para receber dados JSON da página web
 app.use(body_parser.json())
@@ -24,9 +26,9 @@ app.use('/provider', require('./routes/provider'))
 // Configuração de conexão com banco de dados MongoDB
 mongoose
 .connect('mongodb://mongo:27017/mongodb_express', { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => console.log('Successfully conected to database.'))
+.then(() => console.log('successfully conected to database.'))
 .catch((error) => {
-    console.error('Connection to database has failed. Exiting', error) 
+    console.error('connection to database has failed. Exiting', error) 
     process.exit()  
 })
 

@@ -1,3 +1,4 @@
+const { request, response } = require('express')
 const Product = require('../models/product') 
 const router = require('express').Router()
 
@@ -9,7 +10,7 @@ router
             response.render('product/index', 
                             {   title: 'Produtos', 
                                 products })
-        } catch (error){ response.status(500).redirect('https://http.cat/500') }
+        } catch { response.status(500).redirect('https://http.cat/500') }
     })
 
 router
@@ -34,7 +35,45 @@ router
         try {
             const fresh_product = await product.save()
             response.redirect('/product')
-        } catch (error) { response.status(400).redirect('https://http.cat/400') }
+        } catch { response.status(400).redirect('https://http.cat/400') }
+    })
+
+router
+    .route('/:id')
+    .put(async(request,response) => {
+        let product
+        try {
+            product = await Product.findById(request.params.id)
+            product.name = request.body.name
+            product.description =  request.body.description
+            product.price =  priceTreatment(request.body.price)
+            console.log(product)
+            await product.save()
+            response.redirect('/product')
+        } catch { response.status(400).redirect('https://http.cat/400') }
+    })
+    .delete(async(request,response) => {
+        let product
+        try {
+            product = await Product.findById(request.params.id)
+            await product.remove()
+            response.redirect('product') 
+        } catch { response.status(500).redirect('https://http.cat/500') }
+    })
+    .get(async(request,response) => {
+        try {
+            const product = await Product.findById(request.params.id)
+            response.render('product/show',{ product: product })
+        } catch { response.redirect('/') }
+    })
+
+router
+    .route('/:id/edit')
+    .get(async(request,response) => {
+        try {
+            const product = await Product.findById(request.params.id)
+            response.render('product/edit', { product: product })
+        } catch { response.redirect('/product') }
     })
 
 function priceTreatment(price) {

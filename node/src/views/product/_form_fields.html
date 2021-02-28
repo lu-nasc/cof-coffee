@@ -1,0 +1,11 @@
+<div>
+    <label> <h3> Nome </h3> </label>
+    <input type="text" name="name" value="<%= product.name %>"> </div>
+<div>
+    <label> <h3> Descrição </h3> </label>
+    <textarea name="description" cols="50" rows="7"><%= product.description %></textarea>
+</div>
+<div>
+    <label> <h3> Preço de venda (R$) </h3> </label>
+    <input type="text" name="price" pattern="[0-9]{1,4},[0-9]{2}" value="<%= product.price %>">
+</div>

@@ -1,0 +1,5 @@
+<h3><%= product.name %></h3>
+<h3><%= product.description %></h3>
+<h3><%= product.price %></h3>
+<a href="/product/<%= product.id %>/edit">editar</a>
+<%- include('../partials/_delete_form.html', { url: `/product/${product.id}` }) %>

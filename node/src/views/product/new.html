@@ -1,6 +1,9 @@
 <%- include('../partials/header.html') %>
-
     <body>
-        <%- include('_form_post.html')  %>
+    <form action="/product/new" method="POST" autocomplete="off">
+        <%- include('_form_fields.html')  %>
+        <button type="submit">Registrar</button>
+        <button type="reset">Cancelar</button>
+    </form>
     </body>
     <%- include('../partials/footer.html') %>
