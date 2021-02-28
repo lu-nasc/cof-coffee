@@ -57,7 +57,7 @@ router
         try {
             product = await Product.findById(request.params.id)
             await product.remove()
-            response.redirect('product') 
+            response.redirect('/product') 
         } catch { response.status(500).redirect('https://http.cat/500') }
     })
     .get(async(request,response) => {
