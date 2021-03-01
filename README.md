@@ -31,7 +31,7 @@ Projeto de gerencia de uma cafeteria fantasia para avaliação da disciplina de 
 - [x] ~Identificar necessidades do produto~
 - [x] ~Registrar em README a necessidade do produto e outros~
 - [x] ~Documentar primeira release do produto~
-- [ ] Aprensetação dos resultados
+- [X] ~Aprensetação dos resultados~
 #### Fase 1
 - [x] ~Identificar Requisitos Funcionais (RF)~
 - [x] ~Identificar Requisitos Não Funcionais (NF)~
@@ -43,4 +43,10 @@ Projeto de gerencia de uma cafeteria fantasia para avaliação da disciplina de 
 - [X] ~Documentar segunda release do produto~
 - [ ] Apresentação dos resultados
 #### Fase 2
-- [ ]  Projetar design detalhado do software
+- [X]  ~Projetar design detalhado do software~
+- [ ]  Projetar comunicação entre componentes do software
+- [ ]  Definir e seguir regras de uso do Git no README do projeto 
+- [x]  ~Implementar um CRUD básico~
+- [ ]  Especificar estrutura de Implantação do sistema
+- [ ]  Documentar terceira release do produto
+- [ ]  Apresentação dos resultados
