@@ -20,8 +20,7 @@ Projeto de gerencia de uma cafeteria fantasia para avaliação da disciplina de 
 * MongoDB
   * Mongoose
 
-* Para instalar e rodar nosso app
- ./node/README.md
+* [Instalação e execução de nosso app](node/README.md)
   
 ## :computer: Desenvolvedores
 * [Lucas Hideki](https://github.com/lu-nasc)
