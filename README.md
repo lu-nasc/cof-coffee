@@ -19,6 +19,9 @@ Projeto de gerencia de uma cafeteria fantasia para avaliação da disciplina de 
 * Docker
 * MongoDB
   * Mongoose
+
+* Para instalar e rodar nosso app
+ ./node/README.md
   
 ## :computer: Desenvolvedores
 * [Lucas Hideki](https://github.com/lu-nasc)
