@@ -1,0 +1,11 @@
+<div>
+    <label> <h3> Nome </h3> </label>
+    <input type="text" name="name" value="<%= vendor.name %>"> </div>
+<div>
+    <label> <h3> Email </h3> </label>
+    <input type="email" name="email" pattern=".+@+.+"><%= vendor.email %>
+</div>
+<div>
+    <label> <h3> Salário (R$) </h3> </label>
+    <input type="text" name="salary" pattern="[0-9]{1,4},[0-9]{2}" value="<%= vendor.salary %>">
+</div>

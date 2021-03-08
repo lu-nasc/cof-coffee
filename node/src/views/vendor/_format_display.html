@@ -1,0 +1,12 @@
+<form action="/vendor" method="get">
+    <% vendors.forEach(vendor => { %>
+        <div>
+            <label> <%= vendor.name %> </label>
+            <div>
+                <label> <%= vendor.email %> </label>
+            </div>
+            <label> <%= vendor.salary %> </label>
+            <a href="/vendor/<%= vendor.id %>">visualizar</a>
+        </div>
+        <% }) %>
+</form>

@@ -8,8 +8,7 @@ router
         try {
             const products = await Product.find({})
             response.render('product/index', 
-                            {   title: 'Produtos', 
-                                products })
+                { title: 'Produtos', products })
         } catch { response.status(500).redirect('https://http.cat/500') }
     })
 
@@ -44,10 +43,9 @@ router
         let product
         try {
             product = await Product.findById(request.params.id)
-            product.name = request.body.name
-            product.description =  request.body.description
+            product.name = request.body.name.trim()
+            product.description =  request.body.description.trim()
             product.price =  priceTreatment(request.body.price)
-            console.log(product)
             await product.save()
             response.redirect('/product')
         } catch { response.status(400).redirect('https://http.cat/400') }

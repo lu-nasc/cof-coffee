@@ -1,0 +1,5 @@
+<h3><%= vendor.name %></h3>
+<h3><%= vendor.email %></h3>
+<h3><%= vendor.salary %></h3>
+<a href="/vendor/<%= vendor.id %>/edit">editar</a>
+<%- include('../partials/_delete_form.html', { url: `/vendor/${product.id}` }) %>

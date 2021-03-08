@@ -12,6 +12,10 @@ const providerSchema = new mongoose.Schema({
     speciality: {
         type: String, 
         required: true
+    },
+    approval_state: {
+        type: Boolean,
+        required: true
     }
 })
 

@@ -1,0 +1,6 @@
+<h2>Editar Cadastro Funcionário</h2>
+<form action="/vendor/<%= product.id %>?_method=PUT" method="POST">
+  <%- include('_form_fields.html') %>
+  <a href="/vendor/<%= product.id %>">cancelar</a>
+  <button type="submit">atualizar</button>
+</form>
