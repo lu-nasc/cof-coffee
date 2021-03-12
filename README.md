@@ -13,12 +13,12 @@ Projeto de gerencia de uma cafeteria fantasia para avaliação da disciplina de 
 
 ## :hammer: Tecnologias
 
-* Node.js
-  * Express
-  * 1.2. Ejs
 * Docker
+* Node.js
+	* Express
+ 	* Ejs
+  	* Mongoose
 * MongoDB
-  * Mongoose
 
 * [Instalação e execução de nosso app](node/README.md)
   
