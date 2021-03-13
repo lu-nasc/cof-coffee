@@ -2,6 +2,22 @@ const Customer = require('../models/customer')
 const router = require('express').Router()
 
 router
+    .route('/')
+    .get(async(request, response) => {
+        response.render('customer/login', 
+            { title: 'Login Cliente', 
+              email: '', 
+              password: ''})
+    })
+    .post(async(request, response) => {
+        try {
+            const customer = Customer.find({'email': {$eq: request.body.email}})
+            if (customer.password == request.body.password)
+                response.redirect('customer/', {customer: customer})
+        } catch { response.status(500).redirect('https://http.cat/500') }
+    })
+
+router
     .route('/:id')
     .get(async(request, response) => {
         try {
@@ -29,17 +45,6 @@ router
             customer.password = request.body.password.trim()
             await product.save()
             response.redirect('/')
-        } catch { response.status(400).redirect('https://http.cat/400') }
-    })
-
-router
-    .route('/login')
-    .get(async(request, response) => {
-        try {
-            let customer =  await Customer.find(
-                { "email": { $eq: request.body.email.trim() }})
-            if (customer.password == request.body.password)
-                response.redirect('/customer', {id: customer.id})
         } catch { response.status(400).redirect('https://http.cat/400') }
     })
 
