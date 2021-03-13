@@ -1,4 +1,3 @@
-const { response, request } = require('express')
 const Vendor = require('../models/vendor')
 const router = require('express').Router()
 
@@ -53,8 +52,8 @@ router
     .delete(async(request, response) =>{
         let vendor
         try {
-            product = await Vendor.findById(request.params.id)
-            await product.remove()
+            vendor = await Vendor.findById(request.params.id)
+            await vendor.remove()
             response.redirect('/vendor')
         } catch { response.status(500).redirect('https://http.cat/500') }
     })
@@ -70,7 +69,7 @@ router
     .get(async(request, response) =>{
         try{
             const vendor = await Vendor.findById(request.params.id)
-            response.redirect('vendor/edit', { vendor: vendor })
+            response.render('vendor/edit', { vendor: vendor })
         }catch { response.redirect('/vendor') }
     })
 

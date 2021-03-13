@@ -1,0 +1,6 @@
+<h2>Editar dados de perfil</h2>
+<form action="/customer/<%= customer.id %>?_method=PUT" method="post">
+    <%- include('_form_fields.html') %>
+    <button type="submit"></button>
+</form>
+<%- include('../partials/_delete_form.html') %> 
