@@ -47,7 +47,7 @@ Deverá ser criado um issue, para cada nova funcionalidade/tarefa a ser feita. E
 * Diagrama de Implantação
 
 
-#### src (Código fonte do software no modelo MVC):
+#### node/src (Código fonte do software no modelo MVC):
 * models
 * public/images
 * routes
